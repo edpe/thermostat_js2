@@ -10,7 +10,9 @@ Thermostat.prototype = {
     up: function() { this.temp++; },
 
     down: function() {
-      if (this.temp <= this.MIN_TEMP){}
+      if (this.temp <= this.MIN_TEMP){
+        throw new Error("minimum tempreture reached")
+      }
       else {
        this.temp--}
     }
