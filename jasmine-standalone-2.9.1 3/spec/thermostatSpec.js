@@ -19,10 +19,11 @@ describe("Thermostat", function () {
     expect(thermostat.temp).toEqual(19)
   })
 
-  it("minimum tempreture is 10", function () {
-    thermostat.temp = 10;
-    thermostat.down();
-    expect(thermostat.temp).toEqual(10);
+
+  it("throw error is temp below 10", function() {
+    thermostat.temp = 10
+    error = "minimum tempreture reached"
+    expect( function() { thermostat.down() }).toThrow(new Error(error))
   })
 
 })
