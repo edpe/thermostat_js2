@@ -9,4 +9,9 @@ describe("Thermostat", function () {
     expect(thermostat.temp).toEqual(20)
   })
 
+  it("up increases tempreture by 1 degree", function () {
+    thermostat.up();
+    expect(thermostat.temp).toEqual(21)
+  })
+
 })
