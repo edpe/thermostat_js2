@@ -47,4 +47,19 @@ describe("Thermostat", function () {
     expect(thermostat.temp).toEqual(32)
   })
 
+  it("reset returns tempreture to DEFAULT_TEMP", function() {
+    thermostat.temp = 31;
+    thermostat.reset();
+    expect(thermostat.temp).toEqual(DEFAULT_TEMP)
+  })
+
+  it("by default is on medium usage", function(){
+     expect(thermostat.usage()).toEqual("medium-usage")
+  })
+
+  it("when tempreture is 17, usage should be low", function(){
+    thermostat.temp = 17;
+     expect(thermostat.usage()).toEqual("low-usage")
+  })
+
 })

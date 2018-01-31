@@ -5,7 +5,7 @@ const NORMAL_MAX_TEMP = 32;
 
 function Thermostat () {
   this.temp = DEFAULT_TEMP;
-  this.mode = false;
+  this.mode = true;
 };
 
 Thermostat.prototype = {
@@ -21,6 +21,15 @@ Thermostat.prototype = {
 
     powerSaving: function(mode) {
        this.mode = mode;
+    },
+
+    reset: function() {
+      this.temp = DEFAULT_TEMP
+    },
+
+    usage: function(){
+       if(this.temp < 18) {return "low-usage"}
+       else {return "medium-usage"};
     },
 
     _minTemp: function() {
