@@ -44,7 +44,7 @@ describe("Thermostat", function () {
     thermostat.powerSaving(false);
     thermostat.temp = 31
     thermostat.up()
-    expect(thermostat.temp()).toEqual(32)
+    expect(thermostat.temp).toEqual(32)
   })
 
 })
