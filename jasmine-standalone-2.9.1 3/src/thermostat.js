@@ -1,14 +1,18 @@
 function Thermostat () {
-  this.temp = 20
+  this.DEFAULT_TEMP = 20;
+  this.MIN_TEMP = 10;
+  this.temp = this.DEFAULT_TEMP;
+
 };
 
 Thermostat.prototype = {
 
-    up: function() {
-       this.temp++;
-    },
+    up: function() { this.temp++; },
+
     down: function() {
-       this.temp--;
+      if (this.temp <= this.MIN_TEMP){}
+      else {
+       this.temp--}
     }
 
 };
