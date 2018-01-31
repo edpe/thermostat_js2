@@ -1,7 +1,8 @@
+const DEFAULT_TEMP = 20;
+const MIN_TEMP = 10;
+
 function Thermostat () {
-  this.DEFAULT_TEMP = 20;
-  this.MIN_TEMP = 10;
-  this.temp = this.DEFAULT_TEMP;
+  this.temp = DEFAULT_TEMP;
 
 };
 
