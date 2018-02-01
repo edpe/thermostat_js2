@@ -24,7 +24,7 @@ $(document).ready(function() {
   }
 
 	$("#increaseTemp").click(function(event) {
-		thermostat.up();
+		if (!thermostat.up()) {alert("Max Temperature Reached!")} ;
     refreshTempIndicator();
 		event.preventDefault();
 	});
