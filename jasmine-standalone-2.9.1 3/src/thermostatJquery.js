@@ -23,6 +23,12 @@ $(document).ready(function() {
     $("#currentUsage").text(thermostat.usage());
   }
 
+
+	$.get("http://samples.openweathermap.org/data/2.5/find?q=London&units=metric&appid=b6907d289e10d714a6e88b30761fae22", function(site) {
+		console.log(site['list'][0]['main']['temp'])
+		$("#localTemp").text(site['list'][0]['main']['temp']);
+	});
+
 	$("#increaseTemp").click(function(event) {
 		if (!thermostat.up()) {
 			alert("Max Temperature Reached!")
