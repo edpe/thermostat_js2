@@ -3,6 +3,7 @@ const MIN_TEMP = 10;
 const POWER_MAX_TEMP = 25;
 const NORMAL_MAX_TEMP = 32;
 
+
 function Thermostat () {
   this.temp = DEFAULT_TEMP;
   this.mode = true;
