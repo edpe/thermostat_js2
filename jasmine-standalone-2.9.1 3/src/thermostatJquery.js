@@ -7,7 +7,7 @@ $(document).ready(function() {
 	function modeCheck() {
 		if (thermostat.mode === true) {
 			$( '#psMode' ).css({
-				'background-color': 'red'
+				'background-color': '#ff9999'
 			});
 			$('#state').text('on');
 		} else {
@@ -24,7 +24,11 @@ $(document).ready(function() {
   }
 
 	$("#increaseTemp").click(function(event) {
-		if (!thermostat.up()) {alert("Max Temperature Reached!")} ;
+		if (!thermostat.up()) {
+			alert("Max Temperature Reached!")
+      window.open('https://www.youtube.com/watch?v=GeZZr_p6vB8&start=69', '_blank');
+		} ;
+
     refreshTempIndicator();
 		event.preventDefault();
 	});
