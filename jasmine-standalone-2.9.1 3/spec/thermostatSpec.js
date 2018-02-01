@@ -9,7 +9,7 @@ describe("Thermostat", function () {
     expect(thermostat.temp).toEqual(20)
   })
 
-  it("up increases tempreture by 1 degree", function () {
+  it("up increases temperature by 1 degree", function () {
     thermostat.up();
     expect(thermostat.temp).toEqual(21)
   })
@@ -60,6 +60,21 @@ describe("Thermostat", function () {
   it("when tempreture is 17, usage should be low", function(){
     thermostat.temp = 17;
      expect(thermostat.usage()).toEqual("low-usage")
+  })
+
+  it("when tempreture is 24, usage should be medium", function(){
+    thermostat.temp = 24;
+     expect(thermostat.usage()).toEqual("medium-usage")
+  })
+
+  it("when tempreture is 18, usage should be medium", function(){
+    thermostat.temp = 18;
+     expect(thermostat.usage()).toEqual("medium-usage")
+  })
+
+  it("when tempreture is 25, usage should be high", function(){
+    thermostat.temp = 25;
+     expect(thermostat.usage()).toEqual("high-usage")
   })
 
 })

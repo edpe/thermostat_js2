@@ -12,7 +12,8 @@ Thermostat.prototype = {
 
     up: function() {
       if(this.temp >= this._maxTemp()) {throw new Error("maximum tempreture reached")}
-      this.temp++; },
+      this.temp++;
+    },
 
     down: function() {
        this._minTemp();
@@ -29,7 +30,8 @@ Thermostat.prototype = {
 
     usage: function(){
        if(this.temp < 18) {return "low-usage"}
-       else {return "medium-usage"};
+       if(this.temp < 25) {return "medium-usage"}
+       else {return "high-usage"};
     },
 
     _minTemp: function() {
