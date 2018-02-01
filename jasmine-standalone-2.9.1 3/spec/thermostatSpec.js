@@ -29,14 +29,14 @@ describe("Thermostat", function () {
   it("max temp is 25 when power saving mode is on", function() {
     error = "maximum temperature reached"
     thermostat.temp = 25
-    expect( function() { thermostat.up() }).toThrow(new Error(error))
+    expect(thermostat.up()).toBe(false)
   })
 
   it("max temp is 32 when power saving mode is off", function() {
     thermostat.powerSaving();
     error = "maximum temperature reached"
     thermostat.temp = 32
-    expect( function() { thermostat.up() }).toThrow(new Error(error))
+    expect(thermostat.up()).toBe(false)
   })
 
   it("can set temp to 32 when power saving mode is off", function() {

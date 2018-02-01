@@ -11,8 +11,9 @@ function Thermostat () {
 Thermostat.prototype = {
 
     up: function() {
-      if(this.temp >= this._maxTemp()) {throw new Error("maximum temperature reached")}
+      if(this.temp >= this._maxTemp()) {return false}
       this.temp++;
+      return true
     },
 
     down: function() {
