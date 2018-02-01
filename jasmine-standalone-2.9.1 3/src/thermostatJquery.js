@@ -30,7 +30,7 @@ $(document).ready(function() {
 	});
 
 	$("#decreaseTemp").click(function(event) {
-		thermostat.down();
+		if (!thermostat.down()) {alert("Min Temperature Reached!")} ;
     refreshTempIndicator();
 		event.preventDefault();
 	});

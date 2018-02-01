@@ -23,7 +23,7 @@ describe("Thermostat", function () {
   it("throw error is temp below 10", function() {
     thermostat.temp = 10
     error = "minimum temperature reached"
-    expect( function() { thermostat.down() }).toThrow(new Error(error))
+    expect( thermostat.down() ).toBe(false)
   })
 
   it("max temp is 25 when power saving mode is on", function() {

@@ -17,8 +17,9 @@ Thermostat.prototype = {
     },
 
     down: function() {
-       this._minTemp();
-       this.temp--;
+      if (this.temp <= MIN_TEMP) { return false}
+      this.temp-- ;
+      return true
     },
 
     powerSaving: function() {
@@ -38,9 +39,6 @@ Thermostat.prototype = {
        else {return "high-usage"};
     },
 
-    _minTemp: function() {
-      if (this.temp <= MIN_TEMP) {throw new Error("minimum temperature reached")}
-    },
     _maxTemp: function() {
       return (this.mode) ? POWER_MAX_TEMP : NORMAL_MAX_TEMP;
     }
