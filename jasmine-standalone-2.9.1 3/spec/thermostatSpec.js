@@ -14,7 +14,7 @@ describe("Thermostat", function () {
     expect(thermostat.temp).toEqual(21)
   })
 
-  it("down decreses tempreture by 2 degree", function () {
+  it("down decreses temperature by 2 degree", function () {
     thermostat.down();
     expect(thermostat.temp).toEqual(19)
   })
@@ -22,32 +22,31 @@ describe("Thermostat", function () {
 
   it("throw error is temp below 10", function() {
     thermostat.temp = 10
-    error = "minimum tempreture reached"
+    error = "minimum temperature reached"
     expect( function() { thermostat.down() }).toThrow(new Error(error))
   })
 
   it("max temp is 25 when power saving mode is on", function() {
-    thermostat.powerSaving(true);
-    error = "maximum tempreture reached"
+    error = "maximum temperature reached"
     thermostat.temp = 25
     expect( function() { thermostat.up() }).toThrow(new Error(error))
   })
 
   it("max temp is 32 when power saving mode is off", function() {
-    thermostat.powerSaving(false);
-    error = "maximum tempreture reached"
+    thermostat.powerSaving();
+    error = "maximum temperature reached"
     thermostat.temp = 32
     expect( function() { thermostat.up() }).toThrow(new Error(error))
   })
 
   it("can set temp to 32 when power saving mode is off", function() {
-    thermostat.powerSaving(false);
+    thermostat.powerSaving();
     thermostat.temp = 31
     thermostat.up()
     expect(thermostat.temp).toEqual(32)
   })
 
-  it("reset returns tempreture to DEFAULT_TEMP", function() {
+  it("reset returns temperature to DEFAULT_TEMP", function() {
     thermostat.temp = 31;
     thermostat.reset();
     expect(thermostat.temp).toEqual(DEFAULT_TEMP)
@@ -57,24 +56,30 @@ describe("Thermostat", function () {
      expect(thermostat.usage()).toEqual("medium-usage")
   })
 
-  it("when tempreture is 17, usage should be low", function(){
+  it("when temperature is 17, usage should be low", function(){
     thermostat.temp = 17;
      expect(thermostat.usage()).toEqual("low-usage")
   })
 
-  it("when tempreture is 24, usage should be medium", function(){
+  it("when temperature is 24, usage should be medium", function(){
     thermostat.temp = 24;
      expect(thermostat.usage()).toEqual("medium-usage")
   })
 
-  it("when tempreture is 18, usage should be medium", function(){
+  it("when temperature is 18, usage should be medium", function(){
     thermostat.temp = 18;
      expect(thermostat.usage()).toEqual("medium-usage")
   })
 
-  it("when tempreture is 25, usage should be high", function(){
+  it("when temperature is 25, usage should be high", function(){
     thermostat.temp = 25;
      expect(thermostat.usage()).toEqual("high-usage")
   })
 
+  it("expects power saving mode to revert the temperature to 25 °C", function() {
+    thermostat.powerSaving();
+    thermostat.temp = 32
+    thermostat.powerSaving();
+    expect(thermostat.temp).toEqual(POWER_MAX_TEMP);
+  })
 })

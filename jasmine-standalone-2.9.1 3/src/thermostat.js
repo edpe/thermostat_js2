@@ -3,7 +3,6 @@ const MIN_TEMP = 10;
 const POWER_MAX_TEMP = 25;
 const NORMAL_MAX_TEMP = 32;
 
-
 function Thermostat () {
   this.temp = DEFAULT_TEMP;
   this.mode = true;
@@ -12,7 +11,7 @@ function Thermostat () {
 Thermostat.prototype = {
 
     up: function() {
-      if(this.temp >= this._maxTemp()) {throw new Error("maximum tempreture reached")}
+      if(this.temp >= this._maxTemp()) {throw new Error("maximum temperature reached")}
       this.temp++;
     },
 
@@ -21,8 +20,11 @@ Thermostat.prototype = {
        this.temp--;
     },
 
-    powerSaving: function(mode) {
-       this.mode = mode;
+    powerSaving: function() {
+       this.mode = (this.mode) ? false : true
+       if (this.mode && this.temp > POWER_MAX_TEMP) {
+         this.temp = POWER_MAX_TEMP
+       }
     },
 
     reset: function() {
@@ -36,7 +38,7 @@ Thermostat.prototype = {
     },
 
     _minTemp: function() {
-      if (this.temp <= MIN_TEMP) {throw new Error("minimum tempreture reached")}
+      if (this.temp <= MIN_TEMP) {throw new Error("minimum temperature reached")}
     },
     _maxTemp: function() {
       return (this.mode) ? POWER_MAX_TEMP : NORMAL_MAX_TEMP;

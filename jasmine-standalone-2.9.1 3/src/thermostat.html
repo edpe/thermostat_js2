@@ -2,15 +2,19 @@
 <html>
 <head>
   <title>Tom and Ed's very cool Thermostat</title>
-  <script src="thermostat.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.js">
+  </script>
+  <script src="thermostatJquery.js">
+  </script>
+  <script src="thermostat.js">
+  </script>
 </head>
-
 <body>
-  <h1 id = 'currentTemp'>Current Temperature here</h1>
+  <h1><span id = 'currentTemp'></span>°C</h1>
   <button id = 'increaseTemp'>up</button>
   <button id = 'decreaseTemp'>down</button>
   <button id = 'reset'>reset</button>
-  <button id = 'psMode'>power save mode</button>
-  <h2>current usage is <span id="currentUsage"></span></h2>
+  <button id = 'psMode'>power save <span id = "state"></span></button>
+  <h2>current usage is <span id="currentUsage"></span></span></h2>
 </body>
 </html>
