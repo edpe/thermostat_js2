@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tom and Ed's very cool Thermostat</title>
+  <link rel="stylesheet" href="styles.css">
+  <title>Thermostat</title>
   <script src="../node_modules/jquery/dist/jquery.js">
   </script>
-  <script src="thermostatJquery.js">
+  <script src="interface.js">
   </script>
   <script src="thermostat.js">
   </script>
   <style> iframe {display:none;} </style>
 </head>
 <body>
-  <h1>The temperture outside is: <span id = 'localTemp'></span>°C</h1>
-  <form id="select-city">
-    <input id="current-city" type="text" placeholder="Enter a city"></input>
-    <input type="submit"></input>
+  <h1>The temperature in <span id='display-city'></span> is: <span id = 'localTemp'></span>°C</h1>
+  <h2><span id='localWeather'></span> </span></h2>
+  <form id='select-city'>
+    <input id='current-city' type='text' placeholder='Enter a city'></input>
+    <input type='submit'></input>
   </form>
   </section>
   <h1>Thermostat is: <span id = 'currentTemp'></span>°C</h1>
   <button id = 'increaseTemp'>up</button>
   <button id = 'decreaseTemp'>down</button>
   <button id = 'reset'>reset</button>
-  <button id = 'psMode'>power save <span id = "state"></span></button>
-  <h2>current usage is <span id="currentUsage"></span></span></h2>
+  <button id = 'psMode'>power save <span id = 'state'></span></button>
+  <h2>current usage is <span id='currentUsage'></span></span></h2>
 
   <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/-ixRvDkNzYc?start=66&autoplay=1&loop=1" frameborder="0"
    allowfullscreen></iframe> -->

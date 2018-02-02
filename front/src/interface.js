@@ -23,18 +23,21 @@ $(document).ready(function() {
     $("#currentUsage").text(thermostat.usage());
   }
 
-  $('#current-city').change(function() {
+  $('#select-city').submit(function(event) {
+    event.preventDefault();
     var city = $('#current-city').val();
-	   $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid=dc8a41c716da508f180b32cf9ce65ccc&units=metric", function(data) {
-		   $("#localTemp").text(data.main.temp);
-	});
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+      $('#localTemp').text(data.main.temp);
+      $('#localWeather').text(data.weather[0].main);
+      $('#display-city').text(city)
+    })
+  })
 
 	$("#increaseTemp").click(function(event) {
 		if (!thermostat.up()) {
 			alert("Max Temperature Reached!")
       // window.open('https://www.youtube.com/watch?v=GeZZr_p6vB8&start=69', '_blank');
-		};
-
+		}
     refreshTempIndicator();
 		event.preventDefault();
 	});

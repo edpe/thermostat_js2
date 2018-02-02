@@ -53,27 +53,27 @@ describe("Thermostat", function () {
   })
 
   it("by default is on medium usage", function(){
-     expect(thermostat.usage()).toEqual("medium-usage")
+     expect(thermostat.usage()).toEqual("medium")
   })
 
   it("when temperature is 17, usage should be low", function(){
     thermostat.temp = 17;
-     expect(thermostat.usage()).toEqual("low-usage")
+     expect(thermostat.usage()).toEqual("low")
   })
 
   it("when temperature is 24, usage should be medium", function(){
     thermostat.temp = 24;
-     expect(thermostat.usage()).toEqual("medium-usage")
+     expect(thermostat.usage()).toEqual("medium")
   })
 
   it("when temperature is 18, usage should be medium", function(){
     thermostat.temp = 18;
-     expect(thermostat.usage()).toEqual("medium-usage")
+     expect(thermostat.usage()).toEqual("medium")
   })
 
   it("when temperature is 25, usage should be high", function(){
     thermostat.temp = 25;
-     expect(thermostat.usage()).toEqual("high-usage")
+     expect(thermostat.usage()).toEqual("high")
   })
 
   it("expects power saving mode to revert the temperature to 25 °C", function() {
