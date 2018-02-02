@@ -34,9 +34,9 @@ Thermostat.prototype = {
     },
 
     usage: function(){
-       if(this.temp < 18) {return "low-usage"}
-       if(this.temp < 25) {return "medium-usage"}
-       else {return "high-usage"};
+       if(this.temp < 18) {return "low"}
+       if(this.temp < 25) {return "medium"}
+       else {return "high"};
     },
 
     _maxTemp: function() {
